@@ -1,27 +1,14 @@
 @extends('layouts.storefront')
 
-@section('title', 'NEXORA — Home')
+@section('title', 'NEXORA — Category')
 
 @section('content')
-    <section class="container hero">
-        <div class="hero-section">
-                <img src="{{ asset('images/hero.jpg') }}" alt="">
-
-                <div class="transparant-color">
-                </div>
-                
-                <div class="speech">
-                    <h1>Welcome to our store</h1>
-                    <p>Grab what you need here!</p>
-                    <a href="">Buy Now</a>
-                </div>
-        </div>
-
+    <section class="container category">
         <div class="category-section">
             <div class="title-section">
                 <h2 class="title">Browse Categories</h2>
 
-                <a class="view-btn" href="{{ route('category.index') }}">VIEW ALL 
+                <a class="view-btn" href="">VIEW ALL 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
                     </svg>
@@ -50,10 +37,6 @@
                 </div>
                 <?php endforeach ?>
             </div>
-        </div>
-
-        <div class="products-section">
-
         </div>
     </section>
 @endsection

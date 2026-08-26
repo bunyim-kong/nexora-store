@@ -1,0 +1,79 @@
+.hero {
+    padding-top: 6.5rem;
+}
+
+.hero-section {
+    height: 350px;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-radius: 12px;
+    position: relative;
+}
+
+.hero-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.transparant-color {
+    width: 100%;
+    height: 100%;
+    background: #4b4d4d;
+    background: linear-gradient(90deg, rgba(107, 112, 112, 0.893) 0%, rgba(222, 226, 227, 0.277) 33%, rgba(237, 237, 237, 0.325) 60%, rgba(255, 255, 255, 0.08) 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.speech {
+    line-height: 1.5;
+    position: absolute;
+    top: 25%;
+    left: 45px;
+    z-index: 10;
+}
+
+.speech h1 {
+    font-family: var(--font-head);
+    font-size: var(--text-5xl);
+    color: var(--color-text-muted);
+    font-weight: bold;
+}
+
+.speech p {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    font-weight: 400;
+    margin-bottom: 34px;
+}
+
+.speech a {
+    padding: 12px 24px;
+    color: var(--color-text);
+    background-color: var(--color-text-muted);
+    border-radius: 25px;
+    font-weight: bold;
+    transition: .2s all ease;
+}
+
+.speech a:hover {
+    background-color: var(--color-text);
+    color: var(--color-text-muted);
+}
+
+
+
+
+
+
+
+
+
+.category {
+    padding-top: 4rem;
+}
+
+.category-section {
+    padding: 36px 0px;
+}

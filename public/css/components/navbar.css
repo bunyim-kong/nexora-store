@@ -1,0 +1,30 @@
+.navbar {
+    padding: 8px 0px;
+    background-color: var(--color-surface);
+    border-bottom: 2px solid rgb(233, 229, 229);
+}
+
+.nav-home {
+    color: gray;
+}
+
+.toggle a {
+    color: var(--color-text);
+    transition: .2s all ease;
+}
+
+.toggle a:hover {
+    color: var(--color-text-hover);
+    transform: scale(1.1);
+}
+
+.drop-content {
+    border-radius: 10px;
+    background-color: var(--color-surface);
+    z-index: 100;
+}
+
+.drop-content ul li a:hover {
+    background-color: var(--color-border);
+}
+
