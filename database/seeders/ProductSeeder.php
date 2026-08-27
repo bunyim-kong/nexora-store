@@ -16,54 +16,54 @@ class ProductSeeder extends Seeder
         //
         $products = [
             [
-                "name" => "Gaming Mouse",
+                "name" => "Attack Shark X3",
                 'image' => 'product/mouse.jpg',
-                'des' => 'Aula SC620',
+                'des' => 'An ultra-lightweight wireless gaming mouse',
                 "price" => 30,
                 "quantity" => 3,
                 "discount_price" => 10,
             ],
 
             [
-                'name' => "Keyboard Gaming",
-                'image' => 'product/keyboard.jpg',
-                'des' => 'Attack Shark',
+                'name' => "Attack Shark K86",
+                'image' => 'product/keyboard-2.webp',
+                'des' => 'A 75% hot-swappable mechanical gaming keyboard',
                 'price' => 50,
                 'quantity' => 4,
                 'discount_price' => 15,
             ],
 
             [
-                'name' => 'IEM Earphones',
+                'name' => 'KZ ZST X',
                 'image' => 'product/iem.webp',
-                'des' => 'Qkz 6 Pro.',
+                'des' => 'Popular budget hybrid dual-driver in ear-monitors',
                 'price' => 20,
                 'quantity' => 7,
                 'discount_price' => 10,
             ],
 
             [
-                "name" => "Gaming Mouse",
+                "name" => "VGN Dragonfly R1",
                 'image' => 'product/mouse-2.jpeg  ',
-                'des' => 'Aula Gaming',
+                'des' => 'An ultra-lightweight ergonomic wireless gaming mouse.',
                 "price" => 30,
                 "quantity" => 3,
                 "discount_price" => 10,
             ],
 
             [
-                'name' => "Keyboard Gaming",
-                'image' => 'product/keyboard-2.webp',
-                'des' => 'Aula F75 Fake',
+                'name' => "AULA F75",
+                'image' => 'product/keyboard.jpg',
+                'des' => 'A 75% gasket-mount wireless mechanical keyboard',
                 'price' => 50,
                 'quantity' => 4,
                 'discount_price' => 15,
             ],
 
             [
-                'name' => 'IEM Earphones',
+                'name' => 'KZ ZSN Pro',
                 'image' => 'product/iem-2.jpeg',
-                'des' => 'Moondrop',
+                'des' => 'Hybrid in-ear monitor earphones featuring zinc',
                 'price' => 20,
                 'quantity' => 7,
                 'discount_price' => 10,

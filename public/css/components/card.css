@@ -1,15 +1,15 @@
 .card-wrapper {
-    margin-top: 22px;
+    margin-top: 18px;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     align-items: stretch; 
     gap: 18px;
 }
 
 .card {
-    background-color: white;
-    padding: 12px;
-    border: .3px solid rgb(181, 177, 177);
+    background-color: var(--color-primary);
+    padding: 12px 16px;
+    border: 2px solid var(--color-border);
     border-radius: 12px;
     display: flex;
     flex-direction: column;
