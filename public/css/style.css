@@ -22,7 +22,6 @@
     --color-error: #EF4444;
 
     /* Font sizes */
-    /* Font sizes */
     --text-xs: 0.75rem;    /* 12px */
     --text-sm: 0.875rem;   /* 14px */
     --text-base: 1rem;     /* 16px */
@@ -33,6 +32,11 @@
     --text-3xl: 1.875rem;  /* 30px */
     --text-4xl: 2.25rem;   /* 36px */
     --text-5xl: 3rem;      /* 48px */
+}
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
 }
 
 body {

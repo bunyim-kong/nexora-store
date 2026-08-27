@@ -19,6 +19,7 @@ class Product extends Model
         'price',
         'stock',
         'image',
+        'quantity',
         'discount_price',
         'is_best_seller',
         'is_featured',

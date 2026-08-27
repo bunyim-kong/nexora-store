@@ -14,19 +14,20 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreign('category_id')->references('id')->on('categories')->nullOnDelete();
 
             $table->string('name');
-            $table->string('slug')->unique();
+            $table->string('slug')->unique()->nullable();
             $table->text('des');
             $table->decimal('price', 10, 2);
-            $table->integer('stock')->default(0);
-            $table->string('image');
-            $table->decimal('discount_price', 8, 2);
-            $table->boolean('is_best_seller')->default(false);
-            $table->boolean('is_featured')->default(false);
-            $table->string('brand');
+            $table->integer('stock')->default(0)->nullable();
+            $table->string('image')->nullable();
+            $table->decimal('quantity', 10, 0);
+            $table->decimal('discount_price', 8, 0);
+            $table->boolean('is_best_seller')->default(false)->nullable();
+            $table->boolean('is_featured')->default(false)->nullable();
+            $table->string('brand')->nullable();
             $table->timestamps();
         });
     }
