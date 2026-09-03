@@ -1,5 +1,5 @@
 .card-wrapper {
-    margin-top: 18px;
+    margin-top: 16px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     align-items: stretch; 
@@ -101,4 +101,175 @@
 
 .card:hover {
     transform: scale(1.02);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1024px) {
+    .card-wrapper {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 16px;
+    }
+
+    .card {
+        padding: 10px 14px;
+    }
+
+    .card-img {
+        width: 160px;
+    }
+
+    .infor h1 {
+        font-size: 18px;
+    }
+
+    .infor p {
+        font-size: 13px;
+    }
+
+    .price-wrapper {
+        font-size: 20px;
+    }
+
+    .price-wrapper span {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .card-wrapper {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 14px;
+    }
+
+    .card {
+        padding: 10px 12px;
+    }
+
+    .card-img {
+        width: 140px;
+    }
+
+    .infor h1 {
+        font-size: 16px;
+    }
+
+    .infor p {
+        font-size: 12px;
+    }
+
+    .price-wrapper {
+        font-size: 18px;
+    }
+
+    .price-wrapper span {
+        font-size: 14px;
+        margin-top: 8px;
+    }
+
+    .buy-btn {
+        width: 26px;
+        height: 26px;
+    }
+
+    .btn {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .card-wrapper {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px;
+    }
+
+    .card {
+        padding: 8px 10px;
+        border-radius: 10px;
+    }
+
+    .card-img {
+        width: 100%;
+        max-width: 130px;
+    }
+
+    .infor {
+        line-height: 1.4;
+    }
+
+    .infor h1 {
+        font-size: 14px;
+    }
+
+    .infor p {
+        font-size: 11px;
+    }
+
+    .price-wrapper {
+        font-size: 15px;
+    }
+
+    .price-wrapper span {
+        font-size: 12px;
+        margin-top: 6px;
+    }
+
+    .infor small {
+        margin-bottom: 6px;
+    }
+
+    .buy-btn {
+        width: 24px;
+        height: 24px;
+    }
+
+    .btn {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+/* ---------- Small Phone (360px and below) ---------- */
+@media (max-width: 360px) {
+    .card-wrapper {
+        grid-template-columns: repeat(1, 1fr) !important;
+        gap: 10px;
+    }
+
+    .card {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 10px;
+        gap: 12px;
+    }
+
+    .card-img {
+        width: 90px;
+        flex-shrink: 0;
+    }
+
+    .infor {
+        flex: 1;
+        text-align: left;
+    }
+
+    .infor h1 {
+        font-size: 14px;
+    }
+
+    .price-wrapper {
+        justify-content: flex-start;
+        gap: 8px;
+    }
 }

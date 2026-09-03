@@ -11,7 +11,7 @@
                 </div>
                 
                 <div class="speech">
-                    <h1>Welcome to our store</h1>
+                    <h1>Welcome to our store!</h1>
                     <p>Grab what you need here!</p>
                     <a href="">Buy Now</a>
                 </div>

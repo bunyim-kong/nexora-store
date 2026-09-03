@@ -156,3 +156,153 @@ body {
     background-color: var(--color-text);
     color: var(--color-text-muted);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1024px) {
+    /* category */
+    .category-wrapper {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px;
+    }
+
+    .categ-card {
+        padding: 8px 12px;
+    }
+
+    .categ-img {
+        width: 140px;
+    }
+
+    .infor h2 {
+        font-size: var(--text-xl);
+    }
+
+    .infor p {
+        font-size: var(--text-sm);
+    }
+}
+
+@media (max-width: 768px) {
+    .category-wrapper {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 14px;
+    }
+
+    .categ-card {
+        padding: 8px 12px;
+    }
+
+    .categ-infor {
+        margin-left: 4px;
+        gap: 14px;
+    }
+
+    .categ-img {
+        width: 110px;
+    }
+
+    .infor h2 {
+        font-size: var(--text-lg);
+    }
+
+    .infor p {
+        font-size: var(--text-xs);
+    }
+
+    .categ-btn {
+        width: 32px;
+        height: 32px;
+    }
+
+    .categ-icon {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .category-wrapper {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px;
+    }
+
+    .categ-card {
+        padding: 6px 10px;
+        border-radius: 10px;
+    }
+
+    .categ-infor {
+        margin-left: 2px;
+        gap: 8px;
+    }
+
+    .categ-img {
+        width: 90px;
+    }
+
+    .infor h2 {
+        font-size: 0.95rem;
+    }
+
+    .infor p {
+        font-size: 0.7rem;
+    }
+
+    .categ-btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    .categ-icon {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@media (max-width: 420px) {
+    .category-wrapper {
+        grid-template-columns: repeat(1, 1fr) !important;
+        gap: 10px;
+    }
+
+    .categ-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 14px;
+    }
+
+    .categ-infor {
+        margin-left: 0;
+        margin-top: 10px;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .categ-img {
+        width: 110px;
+    }
+}
+
