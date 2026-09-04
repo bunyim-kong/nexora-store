@@ -1,0 +1,208 @@
+/* ---------- Page header ---------- */
+.admin-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.admin-page-header__title {
+  font-family: var(--font-head);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 0.15rem;
+}
+
+.admin-page-header__subtitle {
+  font-size: 0.85rem;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.admin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+
+.admin-btn:active {
+  transform: scale(0.97);
+}
+
+.admin-btn__icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.admin-btn--primary {
+  background-color: var(--color-text);
+  color: var(--color-text-muted);
+}
+
+.admin-btn--primary:hover {
+  filter: brightness(1.1);
+}
+
+.admin-btn--ghost {
+  background-color: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.admin-btn--ghost:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.admin-btn--danger {
+  background-color: transparent;
+  border-color: rgba(248, 113, 113, 0.3);
+  color: #f87171;
+}
+
+.admin-btn--danger:hover {
+  background-color: rgba(248, 113, 113, 0.1);
+  border-color: #f87171;
+}
+
+.admin-btn--icon {
+  padding: 0.5rem;
+}
+
+.admin-btn--icon svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+/* ---------- Table ---------- */
+.admin-table-wrapper {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table thead th {
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--color-border, rgba(255,255,255,0.08));
+}
+
+.admin-table__actions-head {
+  width: 1%;
+}
+
+.admin-table tbody tr {
+  border-bottom: 1px solid var(--color-border, rgba(255,255,255,0.05));
+  transition: background-color 0.15s ease;
+}
+
+.admin-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.admin-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.admin-table td {
+  padding: 0.75rem 1.25rem;
+  vertical-align: middle;
+  font-size: 0.85rem;
+  color: var(--color-text);
+}
+
+.admin-table__thumb {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  border: 1px solid var(--color-border, rgba(255,255,255,0.08));
+  display: block;
+}
+
+.admin-table__thumb--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted, #4b5563);
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.admin-table__thumb--empty svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.admin-table__name {
+  font-weight: 600;
+  color: var(--color-text-primary, #fff);
+}
+
+.admin-table__muted {
+  color: var(--color-text-muted, #9ca3af);
+  max-width: 22rem;
+}
+
+.admin-table__slug {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.78rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0.15rem 0.45rem;
+  border-radius: 0.35rem;
+}
+
+.admin-table__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+
+.admin-table__inline-form {
+  display: inline-flex;
+}
+
+.admin-table__empty {
+  padding: 3rem 1.5rem !important;
+  text-align: center;
+}
+
+.admin-table__empty-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--color-text-muted, #6b7280);
+}
+
+.admin-table__empty-content svg {
+  width: 2rem;
+  height: 2rem;
+  opacity: 0.6;
+}
+
+.admin-table__empty-content p {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+

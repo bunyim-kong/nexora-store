@@ -15,7 +15,7 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!auth()->check() || !auth()->user()->iAdmin()) {
+        if (!auth()->check() || !auth()->user()->isAdmin()) {
             abort(403, 'Jol mer ey khab ler, lbos admin heh.');
         } 
 
