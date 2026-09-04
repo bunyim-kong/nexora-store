@@ -41,43 +41,17 @@
                 <!-- Dropdown menu -->
                 <div id="dropdownNavbarCategory" class="drop-content hidden border border-default-medium rounded-base shadow-lg w-48">
                     <ul class="p-2 text-sm text-body font-medium" aria-labelledby="dropdownNvbarButtonCategory">
-                        <li><a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">IEM</a></li>
-                        <li><a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Keyboard</a></li>
-                        <li><a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Mouse</a></li>
-                        <li><a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Mousepad</a></li>
-                        <li><a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Controller</a></li>
-                        <li><a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Microphone</a></li>
-                        <li><a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Monitor Stand</a></li>
-                        <li><a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Laptop Stand</a></li>
-                        <li><a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Wireless Buds</a></li>
-                        <li><a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Cooling Pad</a></li>
-                        <li><a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Speaker</a></li>
+                    @forelse ($navCategories as $category)
+                        <li>
+                            <a href="" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">{{ $category->name }}</a>
+                        </li>
+                    @empty
+                        <li class="p-2 text-sm text-body font-medium">
+                            No category yet
+                        </li>
+                    @endforelse
                     </ul>
-                </div>
-            </li>
-
-            <li>
-                <button id="dropdownNvbarButton" data-dropdown-toggle="dropdownNavbar" data-dropdown-placement="bottom-start" class="flex items-center justify-between w-full py-2 px-3 rounded font-medium text-heading md:w-auto hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0">
-                    Brand
-                    <svg class="w-4 h-4 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 9-7 7-7-7"/></svg>
-                </button>
-                <!-- Dropdown menu -->
-                <div id="dropdownNavbar" class="drop-content z-10 hidden bg-neutral-primary-medium border border-default-medium rounded-base shadow-lg w-48">
-                    <ul class="p-2 text-sm text-body font-medium" aria-labelledby="dropdownNvbarButton">
-                        <li><a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Attack Shark</a></li>
-                        <li><a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Aula</a></li>
-                        <li><a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Brateck</a></li>
-                        <li><a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">CVJ</a></li>
-                        <li><a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Dunu</a></li>
-                        <li><a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Fantech</a></li>
-                        <li><a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">GK</a></li>
-                        <li><a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Gravastar</a></li>
-                        <li><a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">KZ</a></li>
-                        <li><a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Keyz</a></li>
-                        <li><a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Kiwi Ears</a></li>
-                        <li><a href="#" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Leobog</a></li>
-                    </ul>
-                </div>
+                </div> 
             </li>
 
             <li>
@@ -124,12 +98,6 @@
         <li>
             <a href="{{ route('category.index') }}" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary">
                 Category
-            </a>
-        </li>
-
-        <li>
-            <a href="" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary">
-                Brand
             </a>
         </li>
 

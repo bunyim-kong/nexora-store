@@ -7,6 +7,10 @@
 @section('content')
 
     <div class="admin-page-header">
+        <div class="admin-page-header__text">
+            <h2 class="admin-page-header__title">Total Categories: {{ $categories->count() }} </h2>
+        </div>
+
         <a href="{{ route('admin.categories.create') }}" class="admin-btn admin-btn--primary">
             <svg class="admin-btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 5v14M5 12h14"/>

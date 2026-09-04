@@ -29,12 +29,12 @@
             </div>
 
             <div class="category-wrapper">
-                <?php foreach ($categories as $category): ?>
+                <?php foreach ($categories->take(6) as $category): ?>
                 <div class="categ-card">
                     <div class="categ-infor">
                         <div class="infor">
-                            <h2><?= $category['name'] ?></h2>
-                            <p><?= $category['des'] ?></p>
+                            <h2>{{ $category->name }}</h2>
+                            <p>{{ $category->des }}</p>
                         </div>
 
                         <div class="categ-btn">

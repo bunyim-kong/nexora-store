@@ -19,7 +19,7 @@
 
         <div class="admin-sidebar-brand">
             <a href="{{ route('admin.home') }}" class="admin-sidebar-logo">
-                NEXORA<span class="admin-sidebar-logo-accent">.admin</span>
+                NEXORA<span class="admin-sidebar-logo-accent"> Admin</span>
             </a>
         </div>
 

@@ -47,7 +47,7 @@ class CategoryController extends Controller
             $file = $request->file('image_path');
             $filename = time() . '_' . $file->getClientOriginalName();
             $file->move(public_path('images/category'), $filename);
-            $validated['image_path'] = $filename;
+            $validated['image_path'] = 'category/' . $filename;
         }
 
         Category::create($validated);
@@ -79,17 +79,17 @@ class CategoryController extends Controller
         $validated ['slug'] = Str::slug($validated['name']);
 
         if ($request->hasFile('image_path')) {
-            if ($category->image_path && file_exists(public_path('images/category/' . $category->image_path))) {
-                unlink(public_path('images/category/' . $category->image_path));
+            if ($category->image_path && file_exists(public_path('images/' . $category->image_path))) {
+                unlink(public_path('images/' . $category->image_path));
             }
 
             $file = $request->file('image_path');
             $filename = time() . '_' . $file->getClientOriginalName();
             $file->move(public_path('images/category'), $filename);
-            $validated['image_path'] = $filename;
+            $validated['image_path'] = 'category/' . $filename;
         }
 
-        Category::update($validated);
+        $category->update($validated);
 
         return redirect()->route('admin.categories.index')->with('success', 'Category have done updating.');
     }
@@ -100,8 +100,8 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
-        if ($category->image_path && file_exists(public_path('images/category/' . $category->image_path))) {
-            unlink(public_path('images/category/' . $category->image_path));
+        if ($category->image_path && file_exists(public_path('images/' . $category->image_path))) {
+            unlink(public_path('images/' . $category->image_path));
         }
 
         $category->delete();

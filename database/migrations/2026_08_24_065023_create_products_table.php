@@ -23,8 +23,8 @@ return new class extends Migration
             $table->decimal('price', 10, 2);
             $table->integer('stock')->default(0)->nullable();
             $table->string('image')->nullable();
-            $table->decimal('quantity', 10, 0);
-            $table->decimal('discount_price', 8, 0);
+            $table->decimal('quantity', 10, 0)->nullable();
+            $table->decimal('discount_price', 8, 0)->nullable();
             $table->boolean('is_best_seller')->default(false)->nullable();
             $table->boolean('is_featured')->default(false)->nullable();
             $table->string('brand')->nullable();
