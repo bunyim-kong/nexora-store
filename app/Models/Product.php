@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -42,5 +43,18 @@ class Product extends Model
     public function getIsOnSaleAttribute(): bool
     {
         return !is_null($this->discount_price) && $this->discount_price < $this->price;
+    }
+
+    protected $cast = [
+        'is_best_seller' => 'boolean',
+        'is_featured' => 'boolean,'
+    ];
+
+    public static function booted() {
+        static::creating(function ($product) {
+            if (empty($product->slug)) {
+                $product->slug = Str::slug($product->name) . '-' . Str::random(5);
+            }
+        });
     }
 }

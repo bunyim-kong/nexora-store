@@ -28,7 +28,7 @@
                             </div>
 
                             <div class="btn-wrapper">
-                                <small>Quantity: <strong><?= $product['quantity'] ?></strong> </small>
+                                <small>Stock: <strong><?= $product['stock'] ?></strong> </small>
 
                                 <a class="buy-btn" href="">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="btn size-6">

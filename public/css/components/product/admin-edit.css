@@ -1,0 +1,64 @@
+/* ---------- Two-field grid rows (used on product edit) ---------- */
+.admin-form__grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px 18px;
+    margin-bottom: 18px;
+}
+
+@media (min-width: 640px) {
+    .admin-form__grid-2 {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.admin-form__grid-2 .admin-form__field {
+    margin-bottom: 0;
+}
+
+/* ---------- Select ---------- */
+.admin-form__field select {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 10px 12px;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+}
+
+.admin-form__field select:focus {
+    outline: none;
+    border-color: var(--color-text);
+}
+
+/* ---------- Checkboxes ---------- */
+.admin-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.admin-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+.admin-checkbox input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-text);
+    cursor: pointer;
+}

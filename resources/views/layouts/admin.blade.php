@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/layouts/admin.css') }}">
     <link rel="stylesheet" href="{{ asset('css/components/category/admin-table.css') }}">
     <link rel="stylesheet" href="{{ asset('css/components/category/admin-edit.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/components/product/admin-edit.css') }}">
 
     <!-- flowbite -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>

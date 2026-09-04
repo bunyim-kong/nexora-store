@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
+use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\DashboardController;
 
 // auth
@@ -22,4 +23,5 @@ Route::get('/products', [ProductController::class, 'index'])->name('product.inde
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('home');
     Route::resource('/categories', AdminCategoryController::class)->except('show');
+    Route::resource('/products', AdminProductController::class)->except('show');
 });
