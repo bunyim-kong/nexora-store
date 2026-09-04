@@ -82,9 +82,16 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Product $product)
     {
         //
+        $product->load('category');
+
+        $relatedProducts = Product::where('category_id', $product->category_id)
+            ->where('id', '!=, $product->id')
+            ->limit(4)
+            ->get();
+        return view('storefront.products.show', compact('product', 'relatedProducts'));
     }
 
     /**

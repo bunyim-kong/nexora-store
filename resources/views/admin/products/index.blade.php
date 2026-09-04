@@ -5,7 +5,7 @@
 @section('content')
 <div class="admin-page-header">
     <div class="admin-page-header__text">
-        <h2 class="admin-page-header__title">Total Products: </h2>
+        <h2 class="admin-page-header__title">Total Products: {{ $products->count() }}</h2>
     </div>
 
     <a href="{{ route('admin.products.create') }}" class="admin-btn admin-btn--primary">
@@ -13,35 +13,45 @@
     </a>
 </div>
 
-@if (session('success'))
-    <div class="admin-alert admin-alert-success">
-        {{ session('success') }}
+<form action="{{ route('admin.products.index') }}" method="GET" class="flex flex-wrap items-center justify-end gap-3 py-4 ">
+    <div class="relative min-w-[180px]">
+        <select 
+            name="category_id" 
+            onchange="this.form.submit()"
+            class="w-full appearance-none px-4 py-2.5 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200 bg-gray-50 hover:bg-white cursor-pointer text-sm"
+        >
+            <option" value="">All Categories</option>
+            @foreach ($categories as $category)
+                <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>
+                    {{ $category->name }}
+                </option>
+            @endforeach
+        </select>
+
+        <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+            <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+        </div>
     </div>
-@endif
 
-<form action="{{ route('admin.products.index') }}" method="GET" class="admin-filter-bar">
-    <input
-        type="text"
-        name="search"
-        value="{{ request('search') }}"
-        placeholder="Search products..."
-        class="admin-input"
-    >
+    <div class="flex items-center gap-2">
+        <button type="submit" class="inline-flex items-center px-5 py-2.5 bg-black hover:bg-white hover:text-black text-white text-sm font-medium rounded-lg transition-all duration-200 shadow-xs hover:shadow-sm focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+            <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+            </svg>
+            Filter
+        </button>
 
-    <select name="category_id" class="admin-select" onchange="this.form.submit()">
-        <option value="">All Categories</option>
-        @foreach ($categories as $category)
-            <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>
-                {{ $category->name }}
-            </option>
-        @endforeach
-    </select>
-
-    <button type="submit" class="btn-admin-secondary">Filter</button>
-
-    @if (request('search') || request('category_id'))
-        <a href="{{ route('admin.products.index') }}" class="btn-admin-ghost">Clear</a>
-    @endif
+        @if (request('category_id'))
+            <a href="{{ route('admin.products.index') }}" class="inline-flex items-center px-5 py-2.5 border border-gray-300 hover:bg-gray-50 text-gray-700 text-sm font-medium rounded-lg transition-all duration-200">
+                <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                Clear
+            </a>
+        @endif
+    </div>
 </form>
 
 {{-- Products table --}}

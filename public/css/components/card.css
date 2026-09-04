@@ -42,7 +42,7 @@
 
 .infor p {
     font-size: 14px;
-    color: rgb(99, 93, 93);
+    color: var(--color-text-sec);
 }
 
 .price-wrapper {
@@ -80,7 +80,7 @@
     height: 28px;
     border-radius: 100%;
     border: 1px solid rgba(208, 208, 208, 0.898);
-    color: black;
+    color: var(--color-text);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -93,8 +93,8 @@
 }
 
 .card:hover .buy-btn{
-    background-color: black;
-    color: white;
+    background-color: var(--color-text);
+    color: var(--color-text-muted);
     font-weight: bold;
 
 }

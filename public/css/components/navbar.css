@@ -1,11 +1,21 @@
 .navbar {
     padding: 8px 0px;
     background-color: var(--color-surface);
-    border-bottom: 2px solid rgb(233, 229, 229);
+    border-bottom: 2px solid var(--color-border);
 }
 
 .nav-home {
     color: gray;
+}
+
+.toggle button {
+    color: var(--color-text);
+    transition: .2s all ease;
+}
+
+.toggle button:hover {
+    color: var(--color-text-hover);
+    transform: scale(1.1);
 }
 
 .toggle a {

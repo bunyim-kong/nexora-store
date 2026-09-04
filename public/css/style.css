@@ -10,6 +10,8 @@
     --color-surface: #fcfcfc;
     --color-border: #E5E5E7;
     --color-text: #081f37;
+    --btn: #081f37;
+    --color-text-sec: gray;
     --color-text-muted: #f8f6f6;
     --color-text-hover: rgb(172, 167, 167);
 
@@ -32,6 +34,21 @@
     --text-3xl: 1.875rem;  /* 30px */
     --text-4xl: 2.25rem;   /* 36px */
     --text-5xl: 3rem;      /* 48px */
+}
+
+[data-theme="dark"] {
+    --color-bg: #0f0f12;
+    --color-surface: #1a1a1e;
+    --color-border: #2c2c30;
+    --color-text: #e8e8ed;
+    --btn: #e8edf3;
+    --color-text-sec: #a0a0a8;
+    --color-text-muted: #6b6b70;
+    --color-text-hover: #8a8a8f;
+    --color-primary: #1a1a1e;
+    --color-primary-hover: #e2e2e2;
+    --color-shadow: rgba(0, 0, 0, 0.3);
+    --color-shadow-hover: rgba(0, 0, 0, 0.5);
 }
 
 html {
@@ -123,6 +140,7 @@ body {
 }
 
 .infor p {
+    color: var(--color-text-sec);
     font-size: var(--text-sm);
 }
 

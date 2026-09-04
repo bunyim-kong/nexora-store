@@ -25,4 +25,8 @@ class OrderItem extends Model
     public function products() {
         return $this -> belongsTo(Product::class);
     }
+
+    public function getSubtotalAtrribute() {
+        return $this -> price * $this->quantity();
+    }
 }

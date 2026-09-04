@@ -37,21 +37,21 @@
 .speech h1 {
     font-family: var(--font-head);
     font-size: var(--text-5xl);
-    color: var(--color-text-muted);
+    color: rgb(244, 242, 242);
     font-weight: bold;
 }
 
 .speech p {
     font-size: var(--text-lg);
-    color: var(--color-text-muted);
+    color: rgb(244, 242, 242);
     font-weight: 400;
     margin-bottom: 34px;
 }
 
 .speech a {
     padding: 12px 24px;
-    color: var(--color-text);
-    background-color: var(--color-text-muted);
+    color: black ;
+    background-color: white;
     border-radius: 25px;
     font-weight: bold;
     transition: .2s all ease;

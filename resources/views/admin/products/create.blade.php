@@ -14,21 +14,6 @@
         </div>
     </div>
 
-    @if ($errors->any())
-        <div class="admin-alert admin-alert--error">
-            <svg class="admin-alert__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M12 8v4"/>
-                <path d="M12 16h.01"/>
-            </svg>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
     <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data" class="admin-form admin-form--wide">
         @csrf
 
