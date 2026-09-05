@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str; // Add this import
+use Illuminate\Support\Str;
 
 class Order extends Model
 {
@@ -15,30 +15,40 @@ class Order extends Model
         'customer_name',
         'phone_number',
         'address',
+        'delivery_method',
         'payment_method',
+        'payment_status',
+        'payment_id',
+        'paid_at',
         'subtotal',
         'delivery_fee',
         'total',
         'status',
-        'latitude', // Add these
-        'longitude',
-        'formatted_address',
-        'delivery_instructions',
+        'latitude', 
+        'longitude',                   
+        'formatted_address',           
+        'delivery_instructions',       
         'google_maps_link',
     ];
 
-    // Fix relationship name - singular for belongsTo
+    protected $casts = [
+        'paid_at' => 'datetime',
+        'latitude' => 'decimal:8',
+        'longitude' => 'decimal:8',
+    ];
+
+    // Relationships
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    // Fix relationship name - plural for hasMany
     public function orderItems()
     {
         return $this->hasMany(OrderItem::class);
     }
 
+    // Status Badges
     public function getStatusBadgeAttribute()
     {
         $badges = [
@@ -55,6 +65,35 @@ class Order extends Model
     public function getStatusTextAttribute()
     {
         return ucfirst($this->status);
+    }
+
+    // Payment Status Badges
+    public function getPaymentStatusBadgeAttribute()
+    {
+        $badges = [
+            'unpaid' => 'bg-yellow-100 text-yellow-800',
+            'paid' => 'bg-green-100 text-green-800',
+            'failed' => 'bg-red-100 text-red-800',
+        ];
+        return $badges[$this->payment_status] ?? 'bg-gray-100 text-gray-800';
+    }
+
+    public function getPaymentStatusTextAttribute()
+    {
+        $texts = [
+            'unpaid' => 'Unpaid',
+            'paid' => 'Paid ',
+            'failed' => 'Failed ',
+        ];
+        return $texts[$this->payment_status] ?? ucfirst($this->payment_status);
+    }
+
+    public function getDeliveryMethodBadgeAttribute()
+    {
+        if ($this->delivery_method === 'pickup') {
+            return '🏪 Store Pickup';
+        }
+        return '🚚 Standard Delivery';
     }
 
     public static function generateOrderNumber()

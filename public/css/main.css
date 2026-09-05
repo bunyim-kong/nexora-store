@@ -92,6 +92,10 @@
     margin-top: 0;
 }
 
+.products-section {
+    padding-bottom: 32px;
+}
+
 .product-section {
     padding: 32px 0px;
 }

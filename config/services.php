@@ -13,6 +13,11 @@ return [
     | a conventional file to locate the various service credentials.
     |
     */
+    'bakong' => [
+        'account_id' => env('005063407@ababank'),
+        'merchant_name' => env('BAKONG_MERCHANT_NAME', 'NEXORA-Tech'),
+        'merchant_city' => env('BAKONG_MERCHANT_CITY', 'Phnom Penh'),
+    ],
 
     'postmark' => [
         'key' => env('POSTMARK_API_KEY'),

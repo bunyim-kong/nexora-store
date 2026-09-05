@@ -87,6 +87,12 @@
                 </div>
                 <div>
                     <p><strong>Payment Method:</strong> {{ ucfirst(str_replace('_', ' ', $order->payment_method)) }}</p>
+                    <p class="mt-1">
+                        <strong>Payment Status:</strong>
+                        <span class="px-2 py-1 rounded-full text-xs font-medium {{ $order->payment_status_badge }}">
+                            {{ $order->payment_status_text }}
+                        </span>
+                    </p>
                     <p><strong>Delivery Type:</strong> {{ $order->delivery_fee == 0 ? 'Store Pickup' : 'Standard Delivery' }}</p>
                     <p><strong>Order Date:</strong> {{ $order->created_at->format('M d, Y H:i') }}</p>
                 </div>

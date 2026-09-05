@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ asset('css/components/product-detail.css') }}">
     <link rel="stylesheet" href="{{ asset('css/components/cart.css') }}">
     <link rel="stylesheet" href="{{ asset('css/components/checkout.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/components/contact.css') }}">
     @stack('styles')
 
     <!-- flowbite -->

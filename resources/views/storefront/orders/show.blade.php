@@ -45,6 +45,15 @@
                     <p class="text-lg font-bold"><strong>Total:</strong> ${{ number_format($order->total, 2) }}</p>
                 </div>
             </div>
+
+            @if($qrDataUri)
+                <div class="border rounded-lg p-6 mb-6 text-center bg-gray-50">
+                    <h3 class="font-semibold mb-3">Scan to Pay with KHQR</h3>
+                    <img src="{{ $qrDataUri }}" alt="KHQR Payment Code" class="mx-auto mb-3" style="width: 280px; height: 280px;">
+                    <p class="text-sm text-gray-500">Amount: ${{ number_format($order->total, 2) }}</p>
+                    <p class="text-xs text-gray-400 mt-2">Scan this with any Bakong-member banking app (ABA, ACLEDA, Wing, etc.)</p>
+                </div>
+            @endif
             
             <h3 class="font-semibold mb-2">Order Items</h3>
             <table class="w-full">

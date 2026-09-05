@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'admin',
-            'email' => 'admin@nexora.com',
+            'email' => 'admin@gmail.com',
             'password' => 'nexora12345',
             'role' => 'admin',
         ]);

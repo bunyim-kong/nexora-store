@@ -76,11 +76,6 @@
                     <td>{{ $product->category->name ?? '—' }}</td>
                     <td>
                         ${{ number_format($product->price, 2) }}
-                        @if ($product->is_on_sale)
-                            <span class="admin-badge admin-badge-sale">
-                                ${{ number_format($product->discount_price, 2) }}
-                            </span>
-                        @endif
                     </td>
                     <td>{{ $product->stock ?? 0 }}</td>
                     <td>

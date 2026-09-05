@@ -32,12 +32,17 @@ Route::put('/cart/update/{product}', [CartController::class, 'update'])->name('c
 Route::delete('/cart/remove/{product}', [CartController::class, 'remove'])->name('cart.remove');
 Route::delete('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
 Route::post('/cart/delivery-method', [CartController::class, 'setDeliveryMethod'])->name('cart.delivery-method');
+Route::put('/orders/{order}/mark-paid', [AdminOrderController::class, 'markAsPaid'])->name('orders.markPaid');
 
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
 Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
 
 Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+
+Route::get('/contact', function () {
+    return view('storefront.contact');
+})->name('contact');
 
 // admin-view
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {

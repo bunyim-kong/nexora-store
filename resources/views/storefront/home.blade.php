@@ -17,7 +17,7 @@
                 </div>
         </div>
 
-        <div class="category-section">
+        <div class="category-section category-wrapper-content">
             <div class="title-section">
                 <h2 class="title">Browse Categories</h2>
 
@@ -28,7 +28,7 @@
                 </a>
             </div>
 
-            <div class="category-wrapper">
+            <div class="category-wrapper ">
                 <?php foreach ($categories->take(6) as $category): ?>
                 <div class="categ-card">
                     <div class="categ-infor">

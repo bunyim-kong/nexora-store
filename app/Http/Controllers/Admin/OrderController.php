@@ -46,4 +46,11 @@ class OrderController extends Controller
         return redirect()->route('admin.orders.index')
             ->with('success', 'Order deleted successfully!');
     }
+
+    public function markAsPaid(Order $order, PaymentService $paymentService)
+    {
+        $paymentService->markAsPaid($order);
+
+        return redirect()->back()->with('success', 'Order marked as paid!');
+    }
 }
