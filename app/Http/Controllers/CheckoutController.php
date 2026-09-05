@@ -20,15 +20,18 @@ class CheckoutController extends Controller
             return redirect()->route('product.index')->with('error', 'Your cart is empty.');
         }
         
+        // Get delivery method from session (set in cart)
+        $deliveryMethod = session()->get('delivery_method', 'standard');
+        
         // Calculate totals
         $subtotal = 0;
         foreach ($cart as $item) {
             $subtotal += $item['price'] * $item['quantity'];
         }
-        $deliveryFee = $subtotal >= 50 ? 0 : 5.00;
+        $deliveryFee = $deliveryMethod === 'pickup' ? 0 : 2.00;
         $total = $subtotal + $deliveryFee;
         
-        return view('storefront.checkout.index', compact('cart', 'subtotal', 'deliveryFee', 'total'));
+        return view('storefront.checkout.index', compact('cart', 'subtotal', 'deliveryFee', 'total', 'deliveryMethod'));
     }
 
     // Process order
@@ -38,7 +41,13 @@ class CheckoutController extends Controller
             'customer_name' => 'required|string|max:255',
             'phone_number' => 'required|string|max:20',
             'address' => 'required|string',
-            'payment_method' => 'required|in:cash_on_delivery',
+            'payment_method' => 'required|in:cash_on_delivery,pickup,aba_qr',
+            'delivery_method' => 'required|in:standard,pickup',
+            'google_maps_link' => 'nullable|url',
+            'latitude' => 'nullable|numeric',
+            'longitude' => 'nullable|numeric',
+            'formatted_address' => 'nullable|string',
+            'delivery_instructions' => 'nullable|string',
         ]);
 
         $cart = session()->get('cart', []);
@@ -50,25 +59,35 @@ class CheckoutController extends Controller
         DB::beginTransaction();
         
         try {
-            // Calculate totals
             $subtotal = 0;
             foreach ($cart as $item) {
                 $subtotal += $item['price'] * $item['quantity'];
             }
-            $deliveryFee = $subtotal >= 50 ? 0 : 5.00;
+            $deliveryFee = $request->delivery_method === 'pickup' ? 0 : 2.00;
             $total = $subtotal + $deliveryFee;
             
-            // Create order
+            // Prepare address
+            $address = $request->address;
+            if ($request->formatted_address) {
+                $address = $request->formatted_address;
+            }
+            
+            // Create order with location data
             $order = Order::create([
                 'user_id' => Auth::id(),
                 'customer_name' => $request->customer_name,
                 'phone_number' => $request->phone_number,
-                'address' => $request->address,
+                'address' => $address,
                 'payment_method' => $request->payment_method,
                 'subtotal' => $subtotal,
                 'delivery_fee' => $deliveryFee,
                 'total' => $total,
                 'status' => 'pending',
+                'latitude' => $request->latitude,
+                'longitude' => $request->longitude,
+                'formatted_address' => $request->formatted_address,
+                'delivery_instructions' => $request->delivery_instructions,
+                'google_maps_link' => $request->google_maps_link,
             ]);
 
             // Create order items
@@ -82,15 +101,14 @@ class CheckoutController extends Controller
                         'price' => $item['price'],
                     ]);
 
-                    // Update stock (if you have stock field)
                     if (isset($product->stock)) {
                         $product->decrement('stock', $item['quantity']);
                     }
                 }
             }
 
-            // Clear cart
             session()->forget('cart');
+            session()->forget('delivery_method');
 
             DB::commit();
 

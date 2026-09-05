@@ -6,9 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrderItem extends Model
 {
-    //
     protected $table = 'order_items';
-
     protected $primaryKey = 'id';
 
     protected $fillable = [
@@ -18,15 +16,21 @@ class OrderItem extends Model
         'price',
     ];
 
-    public function orders() {
-        return $this -> belongsTo(Order::class);
+    // Fix relationship name - singular for belongsTo
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
     }
 
-    public function products() {
-        return $this -> belongsTo(Product::class);
+    // Fix relationship name - singular for belongsTo
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
     }
 
-    public function getSubtotalAtrribute() {
-        return $this -> price * $this->quantity();
+    // Fix typo in method name and remove ()
+    public function getSubtotalAttribute()
+    {
+        return $this->price * $this->quantity;
     }
 }

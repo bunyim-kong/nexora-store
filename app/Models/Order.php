@@ -3,12 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str; // Add this import
 
 class Order extends Model
 {
-    //
     protected $table = 'orders';
-
     protected $primaryKey = 'id';
 
     protected $fillable = [
@@ -21,14 +20,23 @@ class Order extends Model
         'delivery_fee',
         'total',
         'status',
+        'latitude', // Add these
+        'longitude',
+        'formatted_address',
+        'delivery_instructions',
+        'google_maps_link',
     ];
 
-    public function users() {
-        return $this -> belongsTo(User::class);
+    // Fix relationship name - singular for belongsTo
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
-    public function orderItem() {
-        return $this -> hasMany(OrderItem::class);
+    // Fix relationship name - plural for hasMany
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
     }
 
     public function getStatusBadgeAttribute()
@@ -44,11 +52,13 @@ class Order extends Model
         return $badges[$this->status] ?? 'bg-gray-100 text-gray-800';
     }
 
-    public function getStatusTextAttribute() {
+    public function getStatusTextAttribute()
+    {
         return ucfirst($this->status);
     }
 
-    public static function generateOrderNumber() {
+    public static function generateOrderNumber()
+    {
         return 'ORD-' . Str::upper(Str::random(10));
     }
 }

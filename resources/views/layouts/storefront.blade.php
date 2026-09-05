@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="{{ asset('css/components/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/components/card.css') }}">
     <link rel="stylesheet" href="{{ asset('css/components/product-detail.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/components/cart.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/components/checkout.css') }}">
+    @stack('styles')
 
     <!-- flowbite -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
